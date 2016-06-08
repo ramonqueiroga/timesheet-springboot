@@ -5,6 +5,7 @@
 *.properties
 *.script
 *.tmp
+*.idea
 
 doc/
 
