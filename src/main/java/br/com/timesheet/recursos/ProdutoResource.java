@@ -2,7 +2,6 @@ package br.com.timesheet.recursos;
 
 import java.util.List;
 
-import br.com.timesheet.repository.ProdutoRepository;
 import br.com.timesheet.model.Produto;
 import br.com.timesheet.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +30,7 @@ public class ProdutoResource {
 
 	@RequestMapping(value="/api/produtos/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Produto> findOne(@PathVariable("id") String id) {
-		Integer produtoId = new Integer(id);
+		Integer produtoId = Integer.valueOf(id);
 		Produto produto = produtoService.findOne(produtoId);
 		if(produto == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
