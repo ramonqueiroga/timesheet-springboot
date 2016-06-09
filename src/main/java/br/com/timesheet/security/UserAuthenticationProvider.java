@@ -13,10 +13,10 @@ import org.springframework.stereotype.Component;
  * Created by ramon on 07/06/16.
  */
 @Component
-public class AccountAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
+public class UserAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
 
     @Autowired
-    private AccountUserDetailService userDetailService;
+    private UserDetailServiceImpl userDetailService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -25,10 +25,10 @@ public class AccountAuthenticationProvider extends AbstractUserDetailsAuthentica
     protected void additionalAuthenticationChecks(UserDetails userDetails, UsernamePasswordAuthenticationToken token)
             throws AuthenticationException {
         if(token.getCredentials() == null || userDetails.getPassword() == null)
-            throw new BadCredentialsException("Credentials may not be null.");
+            throw new BadCredentialsException("Credenciais não podem ser nulas.");
 
         if(!passwordEncoder.matches((String) token.getCredentials(), userDetails.getPassword()))
-            throw new BadCredentialsException("Invalid credentials");
+            throw new BadCredentialsException("Credenciais inválidas");
     }
 
     @Override

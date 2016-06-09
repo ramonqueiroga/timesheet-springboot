@@ -11,4 +11,5 @@ public interface UsuarioService {
     Usuario findOne(Integer id);
     Usuario save(Usuario usuario);
     List<Usuario> findAll();
+    Usuario findByNome(String nome);
 }

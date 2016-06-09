@@ -1,6 +1,6 @@
 package br.com.timesheet.configuration;
 
-import br.com.timesheet.security.AccountAuthenticationProvider;
+import br.com.timesheet.security.UserAuthenticationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +21,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfiguration {
 
     @Autowired
-    private AccountAuthenticationProvider accountAuthenticationProvider;
+    private UserAuthenticationProvider userAuthenticationProvider;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -30,7 +30,7 @@ public class SecurityConfiguration {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) {
-        auth.authenticationProvider(accountAuthenticationProvider);
+        auth.authenticationProvider(userAuthenticationProvider);
     }
 
     @Configuration
@@ -54,12 +54,12 @@ public class SecurityConfiguration {
 
     @Configuration
     @Order(2)
-    public static class ActuatorWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
+    public static class AdminWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
 
         @Override
         protected void configure(HttpSecurity http) throws Exception{
             //@formatter:off
-            http.antMatcher("/actuators/**")
+            http.antMatcher("/admin/**")
                     .authorizeRequests()
                     .anyRequest().hasRole("SYSADMIN")
                     .and()
