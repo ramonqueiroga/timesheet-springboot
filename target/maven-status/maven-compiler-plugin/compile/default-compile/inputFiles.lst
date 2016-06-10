@@ -4,7 +4,9 @@
 /home/ramon/workspace/timesheet-rest/timesheet/src/main/java/br/com/timesheet/configuration/ConfigurationDataBase.java
 /home/ramon/workspace/timesheet-rest/timesheet/src/main/java/br/com/timesheet/recursos/UsuarioResource.java
 /home/ramon/workspace/timesheet-rest/timesheet/src/main/java/br/com/timesheet/service/IService.java
+/home/ramon/workspace/timesheet-rest/timesheet/src/main/java/br/com/timesheet/configuration/AdminWebSecurityConfigurerAdapter.java
 /home/ramon/workspace/timesheet-rest/timesheet/src/main/java/br/com/timesheet/repository/UsuarioRepository.java
+/home/ramon/workspace/timesheet-rest/timesheet/src/main/java/br/com/timesheet/configuration/ApiWebSecurityConfigurerAdapter.java
 /home/ramon/workspace/timesheet-rest/timesheet/src/main/java/br/com/timesheet/service/UsuarioService.java
 /home/ramon/workspace/timesheet-rest/timesheet/src/main/java/br/com/timesheet/ContainerProject.java
 /home/ramon/workspace/timesheet-rest/timesheet/src/main/java/br/com/timesheet/model/Usuario.java
