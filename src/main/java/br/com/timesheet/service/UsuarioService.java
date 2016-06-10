@@ -14,17 +14,9 @@ import java.util.List;
  * Created by ramon on 04/06/16.
  */
 @Service("usuarioService")
-public class UsuarioService extends AbstractService<Usuario> {
-
-    private UsuarioRepository repository;
-
-    @Autowired
-    UsuarioService(UsuarioRepository repository) {
-        super(repository);
-        this.repository= repository;
-    }
+public class UsuarioService extends AbstractService<Usuario, Integer, UsuarioRepository> {
 
     public Usuario findByNome(String nome) {
-        return repository.findByNome(nome);
+        return this.getRepository().findByNome(nome);
     }
 }

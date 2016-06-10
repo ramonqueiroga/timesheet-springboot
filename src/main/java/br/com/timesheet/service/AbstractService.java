@@ -1,32 +1,35 @@
 package br.com.timesheet.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by ramon on 09/06/16.
  */
-public abstract class AbstractService<T> implements IService<T> {
+public abstract class AbstractService<E, I extends Serializable, R extends CrudRepository<E, I>> implements IService<E> {
 
-    private CrudRepository<T, Integer> repository;
+    @Autowired
+    private R repository;
 
-    AbstractService(CrudRepository<T, Integer> repository) {
-        this.repository = repository;
+    @Override
+    public E findOne(Integer id) {
+        return repository.findOne((I)id);
     }
 
     @Override
-    public T findOne(Integer id) {
-        return repository.findOne(id);
+    public E save(E e) {
+        return repository.save(e);
     }
 
     @Override
-    public T save(T t) {
-        return repository.save(t);
+    public List<E> findAll() {
+        return (List<E>) repository.findAll();
     }
 
-    @Override
-    public List<T> findAll() {
-        return (List<T>) repository.findAll();
+    public R getRepository() {
+        return this.repository;
     }
 }
