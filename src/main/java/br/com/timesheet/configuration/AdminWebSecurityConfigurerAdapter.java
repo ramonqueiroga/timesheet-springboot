@@ -16,13 +16,13 @@ public class AdminWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdap
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         //@formatter:off
-        http.antMatcher("/admin/**")
-                .authorizeRequests()
-                .anyRequest().hasRole("SYSADMIN")
-                .and()
-                .httpBasic()
-                .and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+//        http.antMatcher("/admin/**")
+//                .authorizeRequests()
+//                .anyRequest().hasRole("SYSADMIN")
+//                .and()
+//                .httpBasic()
+//                .and()
+//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         //@formatter:on
     }
 

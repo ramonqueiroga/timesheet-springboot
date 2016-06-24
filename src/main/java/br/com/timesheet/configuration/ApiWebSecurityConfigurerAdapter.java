@@ -16,13 +16,13 @@ public class ApiWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapte
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         //@formatter:off
-        http.antMatcher("/api/**")
-                .authorizeRequests()
-                .anyRequest().hasRole("USER")
-                .and()
-                .httpBasic()
-                .and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+//        http.antMatcher("/api/**")
+//                .authorizeRequests()
+//                .anyRequest().hasRole("USER")
+//                .and()
+//                .httpBasic()
+//                .and()
+//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         //@formatter:on
     }
 
