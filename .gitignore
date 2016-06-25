@@ -6,8 +6,10 @@
 *.script
 *.tmp
 *.idea
+timesheet.iml
 
 doc/
+target/
 
 # OS X
 .DS_Store*
@@ -42,3 +44,4 @@ out
 .project
 .settings
 .metadata
+src/main/webapp/
