@@ -14,10 +14,9 @@ public class RestConfiguration {
 
     @Bean
     public CorsFilter corsFilter() {
-
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(true); // you USUALLY want this
+        config.setAllowCredentials(true);
         config.addAllowedOrigin("*");
         config.addAllowedHeader("*");
         config.addAllowedMethod("GET");
@@ -28,4 +27,5 @@ public class RestConfiguration {
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
+
 }
