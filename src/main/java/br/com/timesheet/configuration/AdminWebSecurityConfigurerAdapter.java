@@ -4,7 +4,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
 
 /**
  * Created by ramon on 09/06/16.
@@ -15,6 +14,7 @@ public class AdminWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdap
 
     @Override
     protected void configure(HttpSecurity http) throws Exception{
+        http.csrf().disable();
         //@formatter:off
 //        http.antMatcher("/admin/**")
 //                .authorizeRequests()

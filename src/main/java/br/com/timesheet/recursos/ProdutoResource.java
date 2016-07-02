@@ -7,10 +7,7 @@ import br.com.timesheet.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ProdutoResource {
@@ -36,6 +33,25 @@ public class ProdutoResource {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<>(produto, HttpStatus.OK);
+	}
+
+	@RequestMapping(value="/api/produtos/{id}", method = RequestMethod.PUT)
+	@ResponseBody
+	public ResponseEntity<Produto> saveOne(@PathVariable("id") Integer id, @RequestBody Produto produtoData) {
+
+		Produto produto = this.produtoService.findOne(id);
+
+		if(produto == null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+
+		produto.setDescricao(produtoData.getDescricao());
+		produto.setPaginas(produtoData.getPaginas());
+		produto.setTitulo(produtoData.getTitulo());
+
+		Produto produtoAtualizado = this.produtoService.save(produto);
+
+		return new ResponseEntity<>(produtoAtualizado, HttpStatus.OK);
 	}
 
 
